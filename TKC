@@ -1,0 +1,49 @@
+https://onlinegdb.com/Ts2ZHkV97
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(7, OUTPUT);
+  Serial.begin(9600);
+}
+
+
+int segundoUno = 2;
+int segundoDos = 4;
+int segundoTres = 6;
+int segundos = millis()/1000;
+
+void loop()
+{ segundos = millis()/1000;
+  
+  Serial.println(segundos);
+  
+ while(segundos != segundoUno){
+   digitalWrite(13, HIGH);
+   digitalWrite(7, LOW);
+   segundos = millis()/1000;
+   Serial.println(segundos);
+   
+ }
+ segundoUno += 7;
+ while(segundos != segundoDos){
+   digitalWrite(13, LOW);
+   digitalWrite(4, HIGH);
+   segundos = millis()/1000;
+   Serial.println(segundos);
+ }
+ segundoDos += 7;
+ while(segundos != segundoTres){
+   segundos = millis()/1000;
+ digitalWrite(4, LOW);
+ digitalWrite(7, HIGH);
+   Serial.println(segundos);
+ }
+ segundoTres += 7;
+ 
+ 
+  
+  Serial.println(segundos);
+  
+}
